@@ -14,30 +14,17 @@ public class PlatformMovement : MonoBehaviour
     private Vector3 rotation = Vector3.forward;
     public float rotationSpeed;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-
-    }
-
     private void FixedUpdate()
     {
         CursorFollow();
 
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            transform.Rotate(rotation * rotationSpeed * Time.deltaTime);
+            transform.Rotate(rotation * rotationSpeed * Time.deltaTime); //rotate platform left
         }
         if (Input.GetKey(KeyCode.Mouse1))
         {
-            transform.Rotate(-rotation * rotationSpeed * Time.deltaTime);
+            transform.Rotate(-rotation * rotationSpeed * Time.deltaTime); // rotate platform right
         }
     }
 

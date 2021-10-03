@@ -41,3 +41,30 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: New Layer
+    uniqueID: 3231408575
+    locked: 0
+  - name: New Layer
+    uniqueID: 2420928875
+    locked: 0
+  - name: New Layer
+    uniqueID: 263651305
+    locked: 0
+  - name: New Layer
+    uniqueID: 1903491147
+    locked: 0
+  - name: Backer
+    uniqueID: 4240178147
+    locked: 0
+  - name: Back
+    uniqueID: 16392095
+    locked: 0
+  - name: Main
+    uniqueID: 1499524851
+    locked: 0
+  - name: Particles
+    uniqueID: 3868734611
+    locked: 0
+  - name: UI
+    uniqueID: 3539060011
+    locked: 0
