@@ -7,11 +7,16 @@ public class GameManager : MonoBehaviour
     public GameObject gun;
     public GameObject target;
 
+    public GameObject platform;
+    public GameObject monster;
+
     private Vector3 targetPosition;
 
     public Vector3 left = new Vector3(-12.5f, 0, 0);
     public Vector3 bottom = new Vector3(0, -7, 0);
     public Vector3 right = new Vector3(12.5f, 0, 0);
+
+    private int isLost = 1; // 0 - true, everything else - false
 
     private void Awake()
     {
@@ -76,6 +81,13 @@ public class GameManager : MonoBehaviour
 
         gunInstance.GetComponent<GunShooter>().angle = angle;
 
+    }
+
+    public void Lose()
+    {
+        Debug.Log("You lost!");
+        isLost = 0;
+        platform.GetComponent<PlatformMovement>().ThrowAwayPlatform();
     }
 
 }
