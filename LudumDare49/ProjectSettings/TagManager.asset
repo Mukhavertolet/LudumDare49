@@ -6,6 +6,8 @@ TagManager:
   tags:
   - BulletZone
   - BallZone
+  - Platform
+  - Ball
   layers:
   - Default
   - TransparentFX

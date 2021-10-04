@@ -70,12 +70,8 @@ public class PlatformMovement : MonoBehaviour
 
         Vector3 currentVelocity = Vector3.zero;
 
-        //while (hands.transform.position != Vector3.zero && hands.transform.eulerAngles != Vector3.zero)
-        //{
-        //    Vector3.SmoothDamp(hands.transform.position, Vector3.zero, ref currentVelocity, 1);
-        //    Vector3.SmoothDamp(hands.transform.eulerAngles, Vector3.zero, ref currentVelocity, 1);
-        //}
-
+        //Vector3.SmoothDamp(hands.transform.position, Vector3.zero, ref currentVelocity, 1);
+        //Vector3.SmoothDamp(hands.transform.eulerAngles, Vector3.zero, ref currentVelocity, 1);
 
     }
 

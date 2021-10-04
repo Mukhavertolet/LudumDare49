@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,11 +19,20 @@ public class GameManager : MonoBehaviour
 
     private int isLost = 1; // 0 - true, everything else - false
 
+    public WaitForSeconds waitBeforeGunSpawning;
+    public WaitForSeconds waitBeforeMultipleGunSpawning;
+
+    public float time;
+
     private void Awake()
     {
         left = new Vector3(-12.5f, 0, 0);
         bottom = new Vector3(0, -7, 0);
         right = new Vector3(12.5f, 0, 0);
+
+        waitBeforeGunSpawning = new WaitForSeconds(2);
+        waitBeforeMultipleGunSpawning = new WaitForSeconds(0.5f);
+
 
         targetPosition = target.transform.position;
     }
@@ -30,15 +40,16 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        StartCoroutine(Timer());
+        StartCoroutine(SpawnGun());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            GenerateGun();
+            SceneManager.LoadScene(0);
         }
     }
 
@@ -89,5 +100,47 @@ public class GameManager : MonoBehaviour
         isLost = 0;
         platform.GetComponent<PlatformMovement>().ThrowAwayPlatform();
     }
+
+    IEnumerator SpawnGun()
+    {
+        yield return new WaitForSeconds(5);
+
+
+        while (isLost == 1)
+        {
+            for (int i = 0; i <= time / 20; i++)
+            {
+                if (isLost != 1)
+                    break;
+
+                if(i >= 45)
+                { 
+                    if (isLost != 1)
+                        break;
+
+                    GenerateGun();
+                    yield return new WaitForSeconds(0.1f);
+                }
+
+
+                GenerateGun();
+                yield return waitBeforeMultipleGunSpawning;
+            }
+            yield return waitBeforeGunSpawning;
+        }
+    }
+
+    IEnumerator Timer()
+    {
+        while (isLost == 1)
+        {
+            yield return new WaitForSecondsRealtime(1);
+
+            time += 1;
+        }
+    }
+
+
+
 
 }

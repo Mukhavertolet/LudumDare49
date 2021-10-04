@@ -21,7 +21,7 @@ public class RegularBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -31,9 +31,10 @@ public class RegularBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("BulletZone"))
+        if (collision.CompareTag("BulletZone"))
         {
             FindObjectOfType<GameManager>().Lose();
+            Destroy(gameObject);
 
         }
     }
