@@ -28,9 +28,9 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        left = new Vector3(-12.5f, 0, 0);
+        left = new Vector3(-10.5f, 0, 0);
         bottom = new Vector3(0, -7, 0);
-        right = new Vector3(12.5f, 0, 0);
+        right = new Vector3(10.5f, 0, 0);
 
         waitBeforeGunSpawning = new WaitForSeconds(2);
         waitBeforeMultipleGunSpawning = new WaitForSeconds(0.5f);

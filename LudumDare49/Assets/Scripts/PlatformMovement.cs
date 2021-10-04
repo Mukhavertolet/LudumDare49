@@ -10,6 +10,8 @@ public class PlatformMovement : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject hands;
 
+    public GameObject eyes;
+
     private Vector3 velocity = Vector3.zero;
 
     private Vector3 rotation = Vector3.forward;
