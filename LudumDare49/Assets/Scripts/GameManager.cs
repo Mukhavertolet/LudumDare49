@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject loseCanvas;
+
     public GameObject gun;
     public GameObject target;
 
@@ -99,6 +101,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("You lost!");
         isLost = 0;
         platform.GetComponent<PlatformMovement>().ThrowAwayPlatform();
+        loseCanvas.SetActive(true);
     }
 
     IEnumerator SpawnGun()
